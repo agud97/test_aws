@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    image: rszim/nexthop_backend:testing
+    command: |
+      bash -c 'python main.py'
+    volumes:
+      - ./:/usr/src/app/
+    ports:
+      - 8002:8000
+    environment:
+      - DBNAME=test
+      - DBHOST=db
+      - DBUSER=useruser
+      - DBPASSWD=123123123
+
+
+  db:
+    image: postgres:12
+    volumes:
+      - ../docker_db_values/db_aws:/var/lib/postgresql/data/
+    expose:
+      - 5432
+    environment:
+      - POSTGRES_DB=test
+      - POSTGRES_USER=useruser
+      - POSTGRES_PASSWORD=123123123
