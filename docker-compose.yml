@@ -3,7 +3,7 @@ version: '3.8'
 services:
   web:
     build: .
-    image: rszim/nexthop_backend:testing
+    image: rszim/aws:testing
     command: |
       bash -c 'python main.py'
     volumes:

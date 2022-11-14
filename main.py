@@ -1,4 +1,5 @@
 import asyncio
+import json
 from os import environ
 
 from databases import Database
@@ -17,12 +18,19 @@ class MainHandler(tornado.web.RequestHandler):
         test_db_instance = await database.fetch_all('SELECT * FROM test')
         await database.disconnect()
 
-        response_text = ''
+        response_json = list()
 
         for value in test_db_instance:
-            response_text += str(value.filed2) + '<br>'
+            response_json.append(
+                {
+                    'id': value.field1,
+                    'text': value.filed2,
+                }
+            )
 
-        self.write(response_text)
+        self.set_header("Content-Type", 'application/json')
+        self.set_header("Access-Control-Allow-Origin", "*")
+        self.write(json.dumps(response_json))
 
 def make_app():
     return tornado.web.Application([
