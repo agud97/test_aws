@@ -1,0 +1,24 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: psql-dump
+spec:
+  template:
+    spec:
+      containers:
+      - name: psqldump
+        image: tparfenov/jobdump
+        command: ["/bin/sh", "-c", "psql -h $DBHOST -U $DBUSER $DBNAME < /tmp/testaws.sql"]
+        env:
+        - name: DBHOST
+          value: "eksdbv2-master.c8dqed2new9w.ap-southeast-2.rds.amazonaws.com"
+        - name: DBUSER
+          value: "useruser"
+        - name: PGPASSWORD
+          value: "t785efrb"
+        - name: DBNAME
+          value: "test"
+      restartPolicy: Never
+      imagePullSecrets:
+      - name: regcred
+

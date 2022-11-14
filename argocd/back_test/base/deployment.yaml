@@ -1,0 +1,32 @@
+apiVersion: apps/v1 
+kind: Deployment
+metadata:
+  name: test-aws 
+spec:
+  selector:
+    matchLabels:
+      app: test-aws
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: test-aws
+    spec:
+      containers:
+      - name: test-aws 
+        image: rszim/aws:testing 
+        command: ["/bin/bash", "-c", "python main.py"]
+        imagePullPolicy: Always
+        ports:
+          - containerPort: 8000
+        env:
+          - name: DBHOST 
+            value: "eksdbv2-master.c8dqed2new9w.ap-southeast-2.rds.amazonaws.com" 
+          - name: DBNAME
+            value: "test"
+          - name: DBUSER
+            value: "useruser" 
+          - name: DBPASSWD
+            value: "t785efrb"
+      restartPolicy: Always
+
