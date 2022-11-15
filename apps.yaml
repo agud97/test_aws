@@ -1,0 +1,21 @@
+
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nxhop-portal
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: nxhop
+  source:
+    repoURL: https://github.com/nxhop/portal_aws_infrustructure.git 
+    targetRevision: HEAD
+    path: apps
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: production 
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
