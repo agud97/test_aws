@@ -3,7 +3,7 @@ version: '3.8'
 services:
   web:
     build: .
-    image: rszim/aws:testing
+    image: nxhop/aws_backend_test:testing1.001
     command: |
       bash -c 'python main.py'
     volumes:
