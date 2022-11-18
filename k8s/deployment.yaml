@@ -21,9 +21,9 @@ spec:
           - containerPort: 8888 
         env:
           - name: DBHOST 
-            value: "sdfsdfsdfsdfeksdbv2-master.c8dqed2new9w.ap-southeast-2.rds.amazonaws.com" 
+            value: "sdfsdfsdsdfsdfsdfeksdbv2-master.c8dqed2new9w.ap-southeast-2.rds.amazonaws.com" 
           - name: DBNAME
-            value: "test"
+            value: "testsdfsdf"
           - name: DBUSER
             value: "useruser" 
           - name: DBPASSWD
