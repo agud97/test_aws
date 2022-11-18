@@ -27,6 +27,6 @@ spec:
           - name: DBUSER
             value: "useruser" 
           - name: DBPASSWD
-            value: "t785efrb"
+            value: "t785efrb123"
       restartPolicy: Always
 
