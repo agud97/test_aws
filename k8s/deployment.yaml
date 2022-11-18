@@ -18,7 +18,7 @@ spec:
         command: ["/bin/bash", "-c", "python main.py"]
         imagePullPolicy: Always
         ports:
-          - containerPort: 8080
+          - containerPort: 8888 
         env:
           - name: DBHOST 
             value: "eksdbv2-master.c8dqed2new9w.ap-southeast-2.rds.amazonaws.com" 
