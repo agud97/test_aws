@@ -1,6 +1,6 @@
 FROM python:3.11.0-alpine
 
-#sdfsdf sdfsdf sdfsdfsdf sdfsdfsd sdfsdf 123 ssdfsdf sdfsdfsdfsdfsdfsdfd sdfsdf set work directory
+#sdfsdf sdfsdf sdfsdf sdfsdfsdf sdfsdfsd sdfsdf 123 ssdfsdf sdfsdfsdfsdfsdfsdfd sdfsdf set work directory
 WORKDIR /usr/src/app
 
 # set environment variables
